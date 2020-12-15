@@ -18,3 +18,8 @@ bot.login("Put your token here");
 }
 ```
 When you run the bot, create "global" channel on the server where the bot is then do the command "!sendglobal with a message", to send it to all the servers.
+
+## Others Bots
+
+Discord-Image-to-twitter : https://github.com/bycop/Discord-Image-to-twitter <br>
+Discord-Fivem-Playerlist : https://github.com/bycop/Discord-Fivem-Playerlist
