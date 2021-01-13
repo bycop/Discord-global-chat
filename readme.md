@@ -22,5 +22,6 @@ When you run the bot, create "global" channel on the server where the bot is the
 ## Others Bots
 
 Discord-Image-to-twitter : https://github.com/bycop/Discord-Image-to-twitter <br>
+Discord-Serverlist-InviteLinkByID : https://github.com/bycop/Discord-Serverlist-InviteLinkByID <br>
 Discord-Fivem-Serverstats : https://github.com/bycop/Discord-Fivem-Serverstats <br>
-Discord-Serverlist-InviteLinkByID : https://github.com/bycop/Discord-Serverlist-InviteLinkByID
+Discord-csgo-Serverstats : https://github.com/bycop/Discord-csgo-Serverstats
