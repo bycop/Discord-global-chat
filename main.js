@@ -27,7 +27,8 @@ let channel = guild.channels.cache.find(ch => ch.name === "project-ccc");
 				.setTitle("REMINDER")
 				.setColor('0x992D22')
 				.setAuthor("Cynthia-Community-Chat",)
-	 .setDescription(`**1)** Be civil!\n**2)**Dont send any NSFW content\n**3)**Do not send any crashgifs!\n_ _\nEnjoy the CCC! Sent at: ${moment().format('MMMM Do YYYY, h:mm:ss a')}`)
+	 .setDescription(`**1)** Be respectful!\n**2)** No spamming of any kind allowed!\n**3)** No Server Invites\n**NOTE:** This chat is unmoderated! There might be NSFW-Content. But do us a favor, dont make us ban you from the chat.\n_ _\n Sent at: ${moment().format('MMMM Do YYYY, h:mm:ss a')}`)
+
 				.setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
 				.setFooter("CCC REMINDER")
 				channel.send(embed);
