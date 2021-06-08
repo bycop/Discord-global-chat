@@ -1,14 +1,23 @@
 {
-  "name": "global-chat",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Cross-Server-Chat",
+  "version": "1.1.0",
+  "description": "Updated by Cynthia Dev#0001",
   "main": "main.js",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bycop",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VerstreuteSeele/Discord-global-chat.git"
+  },
+  "author": "bycop & Cynthia Dev#0001",
   "license": "ISC",
-  "dependencies": {
-    "discord.js": "^12.5.1"
-  }
+  "bugs": {
+    "url": "https://github.com/VerstreuteSeele/Discord-global-chat/issues"
+  },
+  "homepage": "https://github.com/VerstreuteSeele/Discord-global-chat#readme"
 }
