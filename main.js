@@ -1,3 +1,6 @@
+// I called it "project-ccc". just rename it
+
+
 const Discord = require('discord.js');
 var bot = new Discord.Client();
 const moment = require('moment');
@@ -25,7 +28,7 @@ let channel = guild.channels.cache.find(ch => ch.name === "project-ccc");
 				.setColor('0x992D22')
 				.setAuthor("Cynthia-Community-Chat",)
 	 .setDescription(`**1)** Be civil!\n**2)**Dont send any NSFW content\n**3)**Do not send any crashgifs!\n_ _\nEnjoy the CCC! Sent at: ${moment().format('MMMM Do YYYY, h:mm:ss a')}`)
-				.setThumbnail()
+				.setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
 				.setFooter("CCC REMINDER")
 				channel.send(embed);
 })}, 1 * 3600000)};
