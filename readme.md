@@ -17,7 +17,7 @@ var prefix = ("!");
 bot.login("Put your token here");
 }
 ```
-When you run the bot, create "global" channel on the server where the bot is then do the command "!sendglobal with a message", to send it to all the servers.
+When you run the bot, create "global" channel on the server where the bot is then send a message in that channel to send it to all the servers.
 
 Thanks to Cynthia Dev for the update 
 
