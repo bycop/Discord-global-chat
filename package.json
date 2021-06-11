@@ -1,11 +1,15 @@
 {
-  "name": "Discord-global-chat",
-  "version": "1.1.0",
-  "description": "Created by Bycop#4757 & Updated by Cynthia Dev#0001",
+  "name": "cross-server-chat",
+  "version": "1.2.0",
+  "description": "Cross-Server-Chat to connect Discord Servers together. Made by Bycop | Updated & maintained by Cynthia Dev",
   "main": "main.js",
   "dependencies": {
+    "canvas": "^2.8.0",
+    "cheerio": "^1.0.0-rc.10",
     "discord.js": "^12.5.3",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "request-promise": "^4.2.6",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,10 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/bycop/Discord-global-chat.git"
   },
-  "author": "Bycop#4757 & Cynthia Dev#0001",
+  "author": "Bycop | CynthiaDev",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bycop/Discord-global-chat/"
+    "url": "https://github.com/bycop/Discord-global-chat/issues"
   },
-  "homepage": "https://github.com/bycop/Discord-global-chat"
+  "homepage": "https://github.com/bycop/Discord-global-chat#readme"
 }
