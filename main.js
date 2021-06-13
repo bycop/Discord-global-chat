@@ -46,14 +46,14 @@ var prefix = "c!";
 bot.login("put_token_here");
 
 bot.on("ready", () => {
-  console.log("CCC ready!");
+  console.log("global ready!");
 });
 
 
 bot.on("message", (message) => {
 
   // made a blacklist system. This here checks if the user trying to send a message is blacklisted and if he is, sends the embed below
-	if (message.channel.name === "cynthia-community-chat") {
+	if (message.channel.name === "global-chat") {
   let user = db.get(`blacklist_${message.author.id}`);
   if (user == true) {
     embed = new Discord.MessageEmbed()
@@ -61,12 +61,12 @@ bot.on("message", (message) => {
       .setColor("0x992D22")
       .setAuthor("System")
       .setDescription(
-        `**Hey there, ${message.author.username}!\nYou have been banned from the Cynthia Community Chat!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
+        `**Hey there, ${message.author.username}!\nYou have been banned from the global chat!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
           "MMMM Do YYYY, h:mm:ss a"
         )}`
       )
       .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-      .setFooter("Cynthia-Community-Chat System Message");
+      .setFooter("global-chat System Message");
     return message.channel.send(embed);
 	}}
 	
@@ -74,11 +74,11 @@ bot.on("message", (message) => {
 	
 	
   //Hourly Rule reminder. Run the command here \/ to start it. good luck hitting an hour flat xD
-  if (message.content.startsWith(prefix + "startCCCTimer")) {
+  if (message.content.startsWith(prefix + "startglobalTimer")) {
     setInterval(() => {
       bot.guilds.cache.forEach((guild) => {
         let channel = guild.channels.cache.find(
-          (ch) => ch.name === "cynthia-community-chat"
+          (ch) => ch.name === "global-chat"
         );
         if (!channel) return;
         messageAttachment =
@@ -95,7 +95,7 @@ bot.on("message", (message) => {
             )}`
           )
           .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-          .setFooter("Cynthia-Community-Chat System Message");
+          .setFooter("global-chat System Message");
         channel.send(embed);
       });
     }, 1 * 36000000);
@@ -130,12 +130,12 @@ bot.on("message", (message) => {
       .setColor("0x992D22")
       .setAuthor("System")
       .setDescription(
-        `**Hey there, ${message.author.username}!\nYou have been banned from the Cynthia Community Chat!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
+        `**Hey there, ${message.author.username}!\nYou have been banned from the global chat!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
           "MMMM Do YYYY, h:mm:ss a"
         )}`
       )
       .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-      .setFooter("Cynthia-Community-Chat System Message");
+      .setFooter("global-chat System Message");
     return message.channel.send(embed);
 	}
     //if not banned, get message and the ID in it
@@ -145,7 +145,7 @@ bot.on("message", (message) => {
     bot.guilds.cache.forEach(async (guild) => {
       let channel = guild.channels.cache.find(
         //get all the channels
-        (ch) => ch.name === "cynthia-community-chat"
+        (ch) => ch.name === "global-chat"
       );
       if (!channel) return
       const channelMessages = await channel.messages.fetch()
@@ -186,12 +186,12 @@ bot.on("message", (message) => {
       .setColor("0x992D22")
       .setAuthor("System")
       .setDescription(
-        `**Hey there, ${message.author.username}!\nYou have been banned from the Cynthia Community Chat!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
+        `**Hey there, ${message.author.username}!\nYou have been banned from the global chat!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
           "MMMM Do YYYY, h:mm:ss a"
         )}`
       )
       .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-      .setFooter("Cynthia-Community-Chat System Message");
+      .setFooter("global-chat System Message");
     return message.channel.send(embed);
 	} //if not do some splicing wizzardry
     let messageArray = message.content.split(" ");
@@ -210,7 +210,7 @@ bot.on("message", (message) => {
         const gifUrl = await getGifFromLink(newMessageContent);
       if (guild == message.guild) {
         let channel = guild.channels.cache.find(
-          (ch) => ch.name === "cynthia-community-chat"
+          (ch) => ch.name === "global-chat"
         );
         if (!channel) return
         const channelMessages = await channel.messages.fetch()
@@ -239,10 +239,10 @@ bot.on("message", (message) => {
         })
         // and send it to the logs (or into the gulag.... whatever)
         let logchannel = guild.channels.cache.find(
-          (ch) => ch.name === "ccc-logs"
+          (ch) => ch.name === "global-logs"
         );
         if (!logchannel) return;
-        if (!message.channel.name === "ccc-logs") return;
+        if (!message.channel.name === "global-logs") return;
         embed = new Discord.MessageEmbed()
           .setTitle("EDITED MESSAGE LOG:")
           .setColor("0x992D22")
@@ -253,7 +253,7 @@ bot.on("message", (message) => {
             )}*`
           )
           .setThumbnail(message.guild.iconURL())
-          .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
+          .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
         if (messageAttachment) embedNewOut.setImage(messageAttachment).setTimestamp();
         if (gifUrl) embedNewOut.setImage(gifUrl)
         logchannel.send(embed);
@@ -262,7 +262,7 @@ bot.on("message", (message) => {
       //its the same as above in a different color
       if (guild == message.guild) return;
       let channel = guild.channels.cache.find(
-        (ch) => ch.name === "cynthia-community-chat"
+        (ch) => ch.name === "global-chat"
       );
       if (!channel) return
       const channelMessages = await channel.messages.fetch()
@@ -291,10 +291,10 @@ bot.on("message", (message) => {
         } return;
       })
       let logchannel = guild.channels.cache.find(
-        (ch) => ch.name === "ccc-logs"
+        (ch) => ch.name === "global-logs"
       );
       if (!logchannel) return;
-      if (!message.channel.name === "ccc-logs") return;
+      if (!message.channel.name === "global-logs") return;
       if (
         newMessageContent.startsWith("https://tenor.com/")
       ) {
@@ -309,7 +309,7 @@ bot.on("message", (message) => {
           )}*`
         )
         .setThumbnail(message.guild.iconURL())
-        .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
+        .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
       if (messageAttachment) embed.setImage(messageAttachment).setTimestamp();
       if (gifUrl) embedNewOut.setImage(gifUrl)
       logchannel.send(embed);
@@ -320,7 +320,7 @@ bot.on("message", (message) => {
     // deja vu? nah.. just the same if its not a gif. lol
     if (guild == message.guild) {
       let channel = guild.channels.cache.find(
-        (ch) => ch.name === "cynthia-community-chat"
+        (ch) => ch.name === "global-chat"
       );
       if (!channel) return
       const channelMessages = await channel.messages.fetch()
@@ -346,10 +346,10 @@ bot.on("message", (message) => {
         } return;
       })
       let logchannel = guild.channels.cache.find(
-        (ch) => ch.name === "ccc-logs"
+        (ch) => ch.name === "global-logs"
       );
       if (!logchannel) return;
-      if (!message.channel.name === "ccc-logs") return;
+      if (!message.channel.name === "global-logs") return;
       embed = new Discord.MessageEmbed()
         .setTitle("EDITED MESSAGE LOG:")
         .setColor("0x992D22")
@@ -360,14 +360,14 @@ bot.on("message", (message) => {
           )}*`
         )
         .setThumbnail(message.guild.iconURL())
-        .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
+        .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
       if (messageAttachment) embedNewOut.setImage(messageAttachment).setTimestamp();
       logchannel.send(embed);
     }
 
     if (guild == message.guild) return;
     let channel = guild.channels.cache.find(
-      (ch) => ch.name === "cynthia-community-chat"
+      (ch) => ch.name === "global-chat"
     );
     if (!channel) return
     const channelMessages = await channel.messages.fetch()
@@ -395,10 +395,10 @@ bot.on("message", (message) => {
       } return;
     })
     let logchannel = guild.channels.cache.find(
-      (ch) => ch.name === "ccc-logs"
+      (ch) => ch.name === "global-logs"
     );
     if (!logchannel) return;
-    if (!message.channel.name === "ccc-logs") return;
+    if (!message.channel.name === "global-logs") return;
     embed = new Discord.MessageEmbed()
       .setTitle("EDITED MESSAGE LOG:")
       .setColor("0x992D22")
@@ -409,7 +409,7 @@ bot.on("message", (message) => {
         )}*`
       )
       .setThumbnail(message.guild.iconURL())
-      .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
+      .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
     if (messageAttachment) embed.setImage(messageAttachment).setTimestamp();
     logchannel.send(embed);
     })
@@ -427,12 +427,12 @@ bot.on("message", (message) => {
       .setColor("0x992D22")
       .setAuthor("System")
       .setDescription(
-        `**You have been banned from the "Cynthia Commuity Chat"!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
+        `**You have been banned from the "global chat"!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
           "MMMM Do YYYY, h:mm:ss a"
         )}`
       )
       .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-      .setFooter("Cynthia-Community-Chat System Message");
+      .setFooter("global-chat System Message");
     return message.channel.send(embed);
 	}
     let messageArray = message.content.split(" ");
@@ -448,7 +448,7 @@ bot.on("message", (message) => {
         db.set(`blacklist_${user}`, true)
         bot.guilds.cache.forEach(async (guild) => {
           let Announcement = guild.channels.cache.find(
-            (ch) => ch.name === "cynthia-community-chat"
+            (ch) => ch.name === "global-chat"
           );
           if(!Announcement) return;
           embed = new Discord.MessageEmbed()
@@ -461,10 +461,10 @@ bot.on("message", (message) => {
             )}`
           )
           .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-          .setFooter("Cynthia-Community-Chat System Message");
+          .setFooter("global-chat System Message");
         Announcement.send(embed);
         let log = guild.channels.cache.find(
-          (ch) => ch.name === "ccc-logs"
+          (ch) => ch.name === "global-logs"
         );
         if(!log) return;
         log.send(embed)
@@ -474,7 +474,7 @@ bot.on("message", (message) => {
         db.delete(`blacklist_${user}`)
         bot.guilds.cache.forEach(async (guild) => {
           let Announcement = guild.channels.cache.find(
-            (ch) => ch.name === "cynthia-community-chat"
+            (ch) => ch.name === "global-chat"
           );
           if(!Announcement) return;
           embed = new Discord.MessageEmbed()
@@ -487,10 +487,10 @@ bot.on("message", (message) => {
             )}`
           )
           .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
-          .setFooter("Cynthia-Community-Chat System Message");
+          .setFooter("global-chat System Message");
         Announcement.send(embed);
         let log = guild.channels.cache.find(
-          (ch) => ch.name === "ccc-logs"
+          (ch) => ch.name === "global-logs"
         );
         if(!log) return;
         log.send(embed)
@@ -506,15 +506,15 @@ bot.on("message", (message) => {
 
   if (message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
-  if (message.channel.name !== "cynthia-community-chat") return;
+  if (message.channel.name !== "global-chat") return;
 
   //outgoing sendable gif that has a direct link
   bot.guilds.cache.forEach(async (guild) => {
     if (guild == message.guild) {
-      let ccc = guild.channels.cache.find(
-        (ch) => ch.name === "cynthia-community-chat"
+      let global = guild.channels.cache.find(
+        (ch) => ch.name === "global-chat"
       );
-      if (!ccc) return;
+      if (!global) return;
         
       //check for some bs link starts
       if (
@@ -541,10 +541,10 @@ bot.on("message", (message) => {
 
         //log it
         let logchannel = guild.channels.cache.find(
-          (ch) => ch.name === "ccc-logs"
+          (ch) => ch.name === "global-logs"
         );
         if (!logchannel) return;
-        if (!message.channel.name === "ccc-logs") return;
+        if (!message.channel.name === "global-logs") return;
         embed = new Discord.MessageEmbed()
           .setTitle("MESSAGE LOG:")
           .setColor("0x992D22")
@@ -555,7 +555,7 @@ bot.on("message", (message) => {
             )}*`
           )
           .setThumbnail(message.guild.iconURL())
-          .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
+          .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
           .setImage(message.content)
           .setTimestamp();
         logchannel.send(embed);
@@ -583,11 +583,11 @@ bot.on("message", (message) => {
           message.delete();
           message.channel.send(embed);
           let logchannel = guild.channels.cache.find(
-            (ch) => ch.name === "ccc-logs"
+            (ch) => ch.name === "global-logs"
           );
           // log it
           if (!logchannel) return;
-          if (!message.channel.name === "ccc-logs") return;
+          if (!message.channel.name === "global-logs") return;
           embed = new Discord.MessageEmbed()
             .setTitle("MESSAGE LOG:")
             .setColor("0x992D22")
@@ -598,7 +598,7 @@ bot.on("message", (message) => {
               )}*`
             )
             .setThumbnail(message.guild.iconURL())
-            .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
+            .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
             .setImage(gifUrl)
             .setTimestamp();
           logchannel.send(embed);
@@ -645,10 +645,10 @@ bot.on("message", (message) => {
 
       //normal Outgoing Logger
       let logchannel = guild.channels.cache.find(
-        (ch) => ch.name === "ccc-logs"
+        (ch) => ch.name === "global-logs"
       );
       if (!logchannel) return;
-      if (!message.channel.name === "ccc-logs") return;
+      if (!message.channel.name === "global-logs") return;
       messageAttachment =
         message.attachments.size > 0
           ? message.attachments.array()[0].url
@@ -663,7 +663,7 @@ bot.on("message", (message) => {
           )}*`
         )
         .setThumbnail(message.guild.iconURL())
-        .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
+        .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
       if (messageAttachment) embed.setImage(messageAttachment).setTimestamp();
       logchannel.send(embed);
     }
@@ -672,10 +672,10 @@ bot.on("message", (message) => {
     //Incoming sendable gif (yes ... its the same now)
     if (guild == message.guild) return;
     let channel = guild.channels.cache.find(
-      (ch) => ch.name === "cynthia-community-chat"
+      (ch) => ch.name === "global-chat"
     );
     if (!channel) return;
-    if (!message.channel.name == "cynthia-community-chat") return;
+    if (!message.channel.name == "global-chat") return;
     if (
       message.content.startsWith("https://media.tenor.com/") ||
       message.content.startsWith("https://media1.tenor.com") ||
@@ -700,10 +700,10 @@ bot.on("message", (message) => {
 
       //log it
       let logchannel = guild.channels.cache.find(
-        (ch) => ch.name === "ccc-logs"
+        (ch) => ch.name === "global-logs"
       );
       if (!logchannel) return;
-      if (!message.channel.name === "ccc-logs") return;
+      if (!message.channel.name === "global-logs") return;
       embed = new Discord.MessageEmbed()
         .setTitle("MESSAGE LOG:")
         .setColor("0x992D22")
@@ -714,7 +714,7 @@ bot.on("message", (message) => {
           )}*`
         )
         .setThumbnail(message.guild.iconURL())
-        .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
+        .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
         .setImage(message.content)
         .setTimestamp();
       logchannel.send(embed);
@@ -742,11 +742,11 @@ bot.on("message", (message) => {
           .setTimestamp();
         channel.send(embed);
         let logchannel = guild.channels.cache.find(
-          (ch) => ch.name === "ccc-logs"
+          (ch) => ch.name === "global-logs"
         );
         //and logged
         if (!logchannel) return;
-        if (!message.channel.name === "ccc-logs") return;
+        if (!message.channel.name === "global-logs") return;
         embed = new Discord.MessageEmbed()
           .setTitle("MESSAGE LOG:")
           .setColor("0x992D22")
@@ -757,7 +757,7 @@ bot.on("message", (message) => {
             )}*`
           )
           .setThumbnail(message.guild.iconURL())
-          .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
+          .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`)
           .setImage(gifUrl)
           .setTimestamp();
         logchannel.send(embed);
@@ -786,9 +786,9 @@ bot.on("message", (message) => {
     channel.send(embed);
 
     //Incoming normal message Logger
-    let logchannel = guild.channels.cache.find((ch) => ch.name === "ccc-logs");
+    let logchannel = guild.channels.cache.find((ch) => ch.name === "global-logs");
     if (!logchannel) return;
-    if (!message.channel.name === "ccc-logs") return;
+    if (!message.channel.name === "global-logs") return;
     messageAttachment =
       message.attachments.size > 0 ? message.attachments.array()[0].url : null;
     embed = new Discord.MessageEmbed()
@@ -801,7 +801,7 @@ bot.on("message", (message) => {
         )}*`
       )
       .setThumbnail(message.guild.iconURL())
-      .setFooter(`CCC LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
+      .setFooter(`global LOGS | User ID: ${message.author.id} | Message ID: ${code}`);
     if (messageAttachment) embed.setImage(messageAttachment).setTimestamp();
     logchannel.send(embed);
   });
