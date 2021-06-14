@@ -17,7 +17,6 @@ const cheerio = require("cheerio");
 const db = require('quick.db')
 var bot = new Discord.Client();
 const moment = require("moment");
-const ownerID = "PUT YOUR ID HERE"
 // Gets gifs from tenor links for embeds (yes discord doesnt do this themselves -.-)
 const getGifFromLink = async (url) => {
   try {
@@ -43,6 +42,7 @@ const getGifFromLink = async (url) => {
 
 // PUT PREFIX AND TOKEN HERE!
 var prefix = "c!";
+const ownerID == "PUT YOUR ID HERE"
 bot.login("put token here");
 
 bot.on("ready", () => {
