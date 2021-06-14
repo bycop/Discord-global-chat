@@ -4,7 +4,6 @@
   "description": "Cross-Server-Chat to connect Discord Servers together. Made by Bycop | Updated & maintained by Cynthia Dev",
   "main": "main.js",
   "dependencies": {
-    "canvas": "^2.8.0",
     "cheerio": "^1.0.0-rc.10",
     "discord-blacklister": "^1.3.2",
     "discord.js": "^12.5.3",
