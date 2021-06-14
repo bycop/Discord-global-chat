@@ -14,7 +14,7 @@ Once you download the files and install node.js, make 'npm install' in the proje
 ```javascript
 {
 var prefix = ("!");
-const ownerID = ("Your User-ID")
+const ownerID == "Your User-ID"
 bot.login("Put your token here");
 }
 ```
