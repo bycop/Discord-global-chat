@@ -17,7 +17,7 @@ const cheerio = require("cheerio");
 const db = require('quick.db')
 var bot = new Discord.Client();
 const moment = require("moment");
-
+const ownerID = "PUT YOUR ID HERE"
 // Gets gifs from tenor links for embeds (yes discord doesnt do this themselves -.-)
 const getGifFromLink = async (url) => {
   try {
@@ -90,11 +90,11 @@ bot.on("message", (message) => {
           .setTitle("RULES:")
           .setColor("0x992D22")
           .setAuthor("System")
-          .setDescription(
-            `**1)** Be respectful!\n**2)** No spamming of any kind allowed!\n**3)** No Server Invites\n_ _\n**COMMANDS:**\nTo edit a message use the following command:\n` + "`c!edit <Message ID> <New message>`\nExample:\n`c!edit jawf7fwaj_78afwfa Im edited now`" + `\n_ _\n To delete a message use the following command:\n` + "`c!delete <MessageID>`\nExample:\n`c!delete jawf7fwaj_78afwfa`" + `\n_ _\n**NOTE:**\nWe *can* and **will** ban you from this chat if you dont behave well!\n_ _\n Sent at: ${moment().format(
-              "MMMM Do YYYY, h:mm:ss a"
-            )}`
-          )
+		.setDescription(
+			`**1)** Be respectful!\n**2)** No spamming of any kind allowed!\n**3)** No Server Invites\n_ _\n**COMMANDS:**\nTo edit a message use the following command:\n` + "`c!edit <Message ID> <New message>`\nExample:\n`c!edit jawf7fwaj_78afwfa Im edited now`" + `\n_ _\n To delete a message use the following command:\n` + "`c!delete <MessageID>`\nExample:\n`c!delete jawf7fwaj_78afwfa`\nIf you are the owner of the bot you can also blacklist people with:\n`c!blacklist <id>` amd unblacklist with the same command" + `\n_ _\n**NOTE:**\nWe *can* and **will** ban you from this chat if you dont behave well!\n_ _\n Sent at: ${moment().format(
+			"MMMM Do YYYY, h:mm:ss a"
+			)}`
+		)
           .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
           .setFooter("global-chat System Message");
         channel.send(embed);
@@ -109,7 +109,7 @@ bot.on("message", (message) => {
       .setColor("0x992D22")
       .setAuthor("System")
       .setDescription(
-        `**1)** Be respectful!\n**2)** No spamming of any kind allowed!\n**3)** No Server Invites\n_ _\n**COMMANDS:**\nTo edit a message use the following command:\n` + "`c!edit <Message ID> <New message>`\nExample:\n`c!edit jawf7fwaj_78afwfa Im edited now`" + `\n_ _\n To delete a message use the following command:\n` + "`c!delete <MessageID>`\nExample:\n`c!delete jawf7fwaj_78afwfa`" + `\n_ _\n**NOTE:**\nWe *can* and **will** ban you from this chat if you dont behave well!\n_ _\n Sent at: ${moment().format(
+        `**1)** Be respectful!\n**2)** No spamming of any kind allowed!\n**3)** No Server Invites\n_ _\n**COMMANDS:**\nTo edit a message use the following command:\n` + "`c!edit <Message ID> <New message>`\nExample:\n`c!edit jawf7fwaj_78afwfa Im edited now`" + `\n_ _\n To delete a message use the following command:\n` + "`c!delete <MessageID>`\nExample:\n`c!delete jawf7fwaj_78afwfa`\nIf you are the owner of the bot you can also blacklist people with:\n`c!blacklist <id>` amd unblacklist with the same command" + `\n_ _\n**NOTE:**\nWe *can* and **will** ban you from this chat if you dont behave well!\n_ _\n Sent at: ${moment().format(
           "MMMM Do YYYY, h:mm:ss a"
         )}`
       )
@@ -169,7 +169,7 @@ bot.on("message", (message) => {
       const channelMessages = await channel.messages.fetch()
       channelMessages.forEach(async (msg) => {
         //if you are not the bot owner, you can only delete your message
-        if (message.author.id !== "215534700284870658") {
+        if (message.author.id !== ownerID) {
           try {
             if (msg?.embeds[0]?.footer?.text?.includes("Message ID: " + args[0]) && msg?.embeds[0]?.author?.name.includes(message.author.tag))
               await msg.delete();
@@ -458,7 +458,7 @@ bot.on("message", (message) => {
     let messageArray = message.content.split(" ");
     let args = messageArray.slice(1);
     //check if you are the bot owner
-    if (message.author.id === "215534700284870658") {
+    if (message.author.id === ownerID) {
       let user = args[0];
       if (!user) return message.channel.send('Invalid user or id');
 
