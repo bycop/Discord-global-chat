@@ -10,17 +10,18 @@ You need to install Node.js and have a discord bot token on this page : https://
 
 ## Installation
 
-Once you download the files and install node.js, make 'npm install' in the project folder. Then, go to the main.js file and add the asked informations on line 5 and 6
+Once you download the files and install node.js, make 'npm install' in the project folder. Then, go to the main.js file and add the asked informations on line 45 and 47
 ```javascript
 {
 var prefix = ("!");
+const ownerID == "Your User-ID"
 bot.login("Put your token here");
 }
 ```
 When you run the bot, create "global" channel on the server where the bot is then send a message in that channel to send it to all the servers.
 
 Thanks to Cynthia Dev for the update 
-
+(no problem. I updated your readme as well this time :P )
 ## Others Bots
 
 Discord-Image-to-twitter : https://github.com/bycop/Discord-Image-to-twitter <br>
