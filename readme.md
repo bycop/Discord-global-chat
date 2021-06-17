@@ -10,17 +10,27 @@ You need to install Node.js and have a discord bot token on this page : https://
 
 ## Installation
 
-Once you download the files and install node.js, make 'npm install' in the project folder. Then, go to the main.js file and add the asked informations on line 45 and 47
+Once you download the files and install node.js, make 'npm install' in the project folder. Then, go to the main.js file and add the asked informations on line 65 and 74
 ```javascript
 {
-var prefix = ("!");
-const ownerID == "Your User-ID"
-bot.login("Put your token here");
+// Your prefix to start the hourly reminder and for others to use the help command
+var prefix = "c!";
+// ID to delete other users messages and use blacklist command
+const ownerID = "215534700284870658"
+// name of the channel to chat in and check for
+const globalchat = "community-chat"
+// name of the log channel
+const logchat = "ccc-logs"
+// put your token there
+bot.login("token_here");
+// start the bot and enjoy
+
 }
 ```
 When you run the bot, create "global" channel on the server where the bot is then send a message in that channel to send it to all the servers.
 
 Thanks to Cynthia Dev for the update 
+
 (no problem. I updated your readme as well this time :P )
 ## Others Bots
 
