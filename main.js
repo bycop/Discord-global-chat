@@ -90,7 +90,7 @@ bot.on("message", (message) => {
         .setColor("0x992D22")
         .setAuthor("System")
         .setDescription(
-          `**Hey there, ${message.author.username}!\nYou have been banned from the ${globalchat}!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*To get unbanned, join the Cynthia AI Support-Server (https://discord.gg/Xnyg477hym) and open a ticket. We might or might not unban you, as we see it fit!*\n_ _\n_ _\n Sent at: ${moment().format(
+          `**Hey there, ${message.author.username}!\nYou have been banned from the ${globalchat}!**\nThis might have a few reasons:\n**1)** You send illegal or other unwanted content (Including but not limited to: Gore, rape, murder, ch!ldp0rn)\n**2)** You were a dick to the community!\n**3)** Users and/or moderators suggested banning you for behaviour outside of this chat\n_ _\n*\n_ _\n_ _\n Sent at: ${moment().format(
             "MMMM Do YYYY, h:mm:ss a"
           )}`
         )
