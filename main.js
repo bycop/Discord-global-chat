@@ -29,7 +29,7 @@ var bot = new Discord.Client();
 const moment = require("moment");
 const attachment = new Discord.MessageAttachment("./image.png", "image.png");
 //test
-let fs = require(`fs`);
+const fs = require(`fs`);
 function download(url) {
     request.get(url).on("error", console.error).pipe(fs.createWriteStream("image.png"));
 }
@@ -76,7 +76,7 @@ bot.on("ready", () => {
 bot.on("message", (message) => {
     // made a blacklist system. This here checks if the user trying to send a message is blacklisted and if he is, sends the embed below
     if (message.channel.name === globalchat) {
-        let user = db.get(`blacklist_${message.author.id}`);
+        const user = db.get(`blacklist_${message.author.id}`);
         if (user == true) {
             embed = new Discord.MessageEmbed()
                 .setTitle("You are banned!")
@@ -99,7 +99,7 @@ bot.on("message", (message) => {
     if (message.content.startsWith(prefix + "startCCCTimer")) {
         setInterval(() => {
             bot.guilds.cache.forEach((guild) => {
-                let channel = guild.channels.cache.find((ch) => ch.name === globalchat);
+                const channel = guild.channels.cache.find((ch) => ch.name === globalchat);
                 if (!channel) return;
                 messageAttachment = message.attachments.size > 0 ? message.attachments.array()[0].url : null;
                 embed = new Discord.MessageEmbed()
@@ -144,14 +144,14 @@ bot.on("message", (message) => {
 
     //Some garbage for avatar fetching bc yes
     const avicon = "https://cdn.discordapp.com/avatars/" + message.author.id + "/" + message.author.avatar + ".jpeg";
-    let code = Math.random().toString(36).substr(2) + "_" + Math.random().toString(36).substr(2);
+    const code = Math.random().toString(36).substr(2) + "_" + Math.random().toString(36).substr(2);
 
     // no dms
     if (message.channel.type === "dm") return;
 
     // First command: delete
     if (message.content.startsWith(prefix + "delete")) {
-        let user = db.get(`blacklist_${message.author.id}`);
+        const user = db.get(`blacklist_${message.author.id}`);
         //check if user is banned
         if (user == true) {
             embed = new Discord.MessageEmbed()
@@ -170,11 +170,11 @@ bot.on("message", (message) => {
             return message.channel.send(embed);
         }
         //if not banned, get message and the ID in it
-        let messageArray = message.content.split(" ");
-        let args = messageArray.slice(1);
+        const messageArray = message.content.split(" ");
+        const args = messageArray.slice(1);
         if (!isNaN(args[0])) return message.channel.send("Wrong Message-ID");
         bot.guilds.cache.forEach(async (guild) => {
-            let channel = guild.channels.cache.find(
+            const channel = guild.channels.cache.find(
                 //get all the channels
                 (ch) => ch.name === globalchat
             );
@@ -223,7 +223,7 @@ bot.on("message", (message) => {
                 message.channel.send(embed1);
             }, 2000);
         }
-        let logchannel = message.guild.channels.cache.find((ch) => ch.name === logchat);
+        const logchannel = message.guild.channels.cache.find((ch) => ch.name === logchat);
         if (!logchannel) return;
         if (!message.channel.name === logchat) return;
         embed = new Discord.MessageEmbed()
@@ -250,7 +250,7 @@ bot.on("message", (message) => {
     // EDIT COMMAND IS PAINFUL AF!!
 
     if (message.content.startsWith(prefix + "edit")) {
-        let user = db.get(`blacklist_${message.author.id}`);
+        const user = db.get(`blacklist_${message.author.id}`);
         //check if you´re banned
         if (user == true) {
             embed = new Discord.MessageEmbed()
@@ -268,10 +268,10 @@ bot.on("message", (message) => {
                 .setFooter(`Cynthia-Community-Chat System Message`);
             return message.channel.send(embed);
         } //if not do some splicing wizzardry
-        let messageArray = message.content.split(" ");
-        let messageID = messageArray.shift();
+        const messageArray = message.content.split(" ");
+        const messageID = messageArray.shift();
         messageID = messageArray.shift();
-        let newMessageContent = messageArray.join(" ");
+        const newMessageContent = messageArray.join(" ");
         if (!isNaN(messageID)) return message.channel.send("Wrong Message-ID");
         messageAttachment = message.attachments.size > 0 ? message.attachments.array()[0].url : null;
         bot.guilds.cache.forEach(async (guild) => {
@@ -279,7 +279,7 @@ bot.on("message", (message) => {
             if (newMessageContent.startsWith("https://tenor.com/")) {
                 const gifUrl = await getGifFromLink(newMessageContent);
                 if (guild == message.guild) {
-                    let channel = guild.channels.cache.find((ch) => ch.name === globalchat);
+                    const channel = guild.channels.cache.find((ch) => ch.name === globalchat);
                     if (!channel) return;
                     const channelMessages = await channel.messages.fetch();
                     channelMessages.forEach(async (msg) => {
@@ -303,7 +303,7 @@ bot.on("message", (message) => {
                         return;
                     });
                     // and send it to the logs (or into the gulag.... whatever)
-                    let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                    const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                     if (!logchannel) return;
                     if (!message.channel.name === logchat) return;
                     embed = new Discord.MessageEmbed()
@@ -320,7 +320,7 @@ bot.on("message", (message) => {
                 // yes... we need a second part if its not our guild.. bc our guild gets a different embed than others.. lol
                 //its the same as above in a different color
                 if (guild == message.guild) return;
-                let channel = guild.channels.cache.find((ch) => ch.name === globalchat);
+                const channel = guild.channels.cache.find((ch) => ch.name === globalchat);
                 if (!channel) return;
                 const channelMessages = await channel.messages.fetch();
                 channelMessages.forEach(async (msg) => {
@@ -343,7 +343,7 @@ bot.on("message", (message) => {
                     }
                     return;
                 });
-                let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                 if (!logchannel) return;
                 if (!message.channel.name === logchat) return;
                 if (newMessageContent.startsWith("https://tenor.com/")) {
@@ -363,7 +363,7 @@ bot.on("message", (message) => {
 
             // deja vu? nah.. just the same if its not a gif. lol
             if (guild == message.guild) {
-                let channel = guild.channels.cache.find((ch) => ch.name === globalchat);
+                const channel = guild.channels.cache.find((ch) => ch.name === globalchat);
                 if (!channel) return;
                 const channelMessages = await channel.messages.fetch();
                 channelMessages.forEach(async (msg) => {
@@ -384,7 +384,7 @@ bot.on("message", (message) => {
                     }
                     return;
                 });
-                let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                 if (!logchannel) return;
                 if (!message.channel.name === logchat) return;
                 embed = new Discord.MessageEmbed()
@@ -399,7 +399,7 @@ bot.on("message", (message) => {
             }
 
             if (guild == message.guild) return;
-            let channel = guild.channels.cache.find((ch) => ch.name === globalchat);
+            const channel = guild.channels.cache.find((ch) => ch.name === globalchat);
             if (!channel) return;
             const channelMessages = await channel.messages.fetch();
             channelMessages.forEach(async (msg) => {
@@ -421,7 +421,7 @@ bot.on("message", (message) => {
                 }
                 return;
             });
-            let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+            const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
             if (!logchannel) return;
             if (!message.channel.name === logchat) return;
             embed = new Discord.MessageEmbed()
@@ -439,7 +439,7 @@ bot.on("message", (message) => {
 
     // Here is our blacklist command.
     if (message.content.startsWith(prefix + "blacklist")) {
-        let user1 = db.get(`blacklist_${message.author.id}`);
+        const user1 = db.get(`blacklist_${message.author.id}`);
         //check if blacklisted... just for fun and consistency
         if (user1 == true) {
             embed = new Discord.MessageEmbed()
@@ -455,19 +455,19 @@ bot.on("message", (message) => {
                 .setFooter(`${globalchat} System Message`);
             return message.channel.send(embed);
         }
-        let messageArray = message.content.split(" ");
-        let args = messageArray.slice(1);
+        const messageArray = message.content.split(" ");
+        const args = messageArray.slice(1);
         //check if you are the bot owner
         if (message.author.id === ownerID) {
-            let user = args[0];
+            const user = args[0];
             if (!user) return message.channel.send("Invalid user or id");
 
-            let fetched = db.get(`blacklist_${user}`);
+            const fetched = db.get(`blacklist_${user}`);
             // if not banned, do now
             if (!fetched) {
                 db.set(`blacklist_${user}`, true);
                 bot.guilds.cache.forEach(async (guild) => {
-                    let Announcement = guild.channels.cache.find((ch) => ch.name === globalchat);
+                    const Announcement = guild.channels.cache.find((ch) => ch.name === globalchat);
                     if (!Announcement) return;
                     embed = new Discord.MessageEmbed()
                         .setTitle("USER BANNED:")
@@ -477,7 +477,7 @@ bot.on("message", (message) => {
                         .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
                         .setFooter(`${globalchat} System Message`);
                     Announcement.send(embed);
-                    let log = guild.channels.cache.find((ch) => ch.name === logchat);
+                    const log = guild.channels.cache.find((ch) => ch.name === logchat);
                     if (!log) return;
                     log.send(embed);
                 });
@@ -485,7 +485,7 @@ bot.on("message", (message) => {
                 // if banned, unban
                 db.delete(`blacklist_${user}`);
                 bot.guilds.cache.forEach(async (guild) => {
-                    let Announcement = guild.channels.cache.find((ch) => ch.name === globalchat);
+                    const Announcement = guild.channels.cache.find((ch) => ch.name === globalchat);
                     if (!Announcement) return;
                     embed = new Discord.MessageEmbed()
                         .setTitle("USER UNBANNED:")
@@ -495,7 +495,7 @@ bot.on("message", (message) => {
                         .setThumbnail("https://i.postimg.cc/qqMHkyvF/Capture.png")
                         .setFooter(`${globalchat} System Message`);
                     Announcement.send(embed);
-                    let log = guild.channels.cache.find((ch) => ch.name === logchat);
+                    const log = guild.channels.cache.find((ch) => ch.name === logchat);
                     if (!log) return;
                     log.send(embed);
                 });
@@ -516,7 +516,7 @@ bot.on("message", (message) => {
     //outgoing sendable gif that has a direct link
     bot.guilds.cache.forEach(async (guild) => {
         if (guild == message.guild) {
-            let ccc = guild.channels.cache.find((ch) => ch.name === globalchat);
+            const ccc = guild.channels.cache.find((ch) => ch.name === globalchat);
             if (!ccc) return;
 
             //check for some bs link starts
@@ -541,7 +541,7 @@ bot.on("message", (message) => {
                 message.channel.send(embed);
 
                 //log it
-                let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                 if (!logchannel) return;
                 if (!message.channel.name === logchat) return;
                 embed = new Discord.MessageEmbed()
@@ -573,7 +573,7 @@ bot.on("message", (message) => {
                         .setTimestamp();
                     message.delete();
                     message.channel.send(embed);
-                    let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                    const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                     // log it
                     if (!logchannel) return;
                     if (!message.channel.name === logchat) return;
@@ -620,7 +620,7 @@ bot.on("message", (message) => {
                     embed1.setImage("attachment://image.png");
                     message.delete();
                     message.channel.send(embed1);
-                    let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                    const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                     if (!logchannel) return;
                     if (!message.channel.name === logchat) return;
                     messageAttachment = message.attachments.size > 0 ? message.attachments.array()[0].url : null;
@@ -641,7 +641,7 @@ bot.on("message", (message) => {
             message.channel.send(embed1);
 
             //normal Outgoing Logger
-            let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+            const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
             if (!logchannel) return;
             if (!message.channel.name === logchat) return;
             messageAttachment = message.attachments.size > 0 ? message.attachments.array()[0].url : null;
@@ -666,7 +666,7 @@ bot.on("message", (message) => {
 
         //Incoming sendable gif (yes ... its the same now)
         if (guild == message.guild) return;
-        let channel = guild.channels.cache.find((ch) => ch.name === globalchat);
+        const channel = guild.channels.cache.find((ch) => ch.name === globalchat);
         if (!channel) return;
         if (!message.channel.name == globalchat) return;
         if (
@@ -690,7 +690,7 @@ bot.on("message", (message) => {
             channel.send(embed);
 
             //log it
-            let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+            const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
             if (!logchannel) return;
             if (!message.channel.name === logchat) return;
             embed = new Discord.MessageEmbed()
@@ -722,7 +722,7 @@ bot.on("message", (message) => {
                     .setImage(gifUrl)
                     .setTimestamp();
                 channel.send(embed);
-                let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                 //and logged
                 if (!logchannel) return;
                 if (!message.channel.name === logchat) return;
@@ -760,7 +760,7 @@ bot.on("message", (message) => {
                 embed3.attachFiles(attachment);
                 embed3.setImage("attachment://image.png");
                 channel.send(embed3);
-                let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+                const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
                 if (!logchannel) return;
                 if (!message.channel.name === logchat) return;
                 messageAttachment = message.attachments.size > 0 ? message.attachments.array()[0].url : null;
@@ -780,7 +780,7 @@ bot.on("message", (message) => {
         channel.send(embed3);
 
         //Incoming normal message Logger
-        let logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
+        const logchannel = guild.channels.cache.find((ch) => ch.name === logchat);
         if (!logchannel) return;
         if (!message.channel.name === logchat) return;
         messageAttachment = message.attachments.size > 0 ? message.attachments.array()[0].url : null;
@@ -803,4 +803,4 @@ bot.on("message", (message) => {
         logchannel.send(embed4);
     });
 }); // 808 lines.. fckn hell I could´ve made an entire music bot in here... lol **less then that to be correct**
-//road to 1k less go... ffs
+//road to 1k less go... ffs. Road to 1k? Well nah, let's make this smaller
