@@ -29,9 +29,6 @@ bot.login("token_here");
 ```
 When you run the bot, create "global" channel on the server where the bot is then send a message in that channel to send it to all the servers.
 
-Thanks to Cynthia Dev for the update 
-
-(no problem. I updated your readme as well this time :P )
 ## Others Bots
 
 Discord-Image-to-twitter : https://github.com/bycop/Discord-Image-to-twitter <br>
